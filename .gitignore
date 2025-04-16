@@ -1,0 +1,15 @@
+# Python
+__pycache__/     ← Ignore compiled Python files
+*.py[cod]        ← Ignore .pyc, .pyo, etc.
+venv/            ← Ignore your virtual environment (the big problem right now!)
+
+# Node.js
+node_modules/    ← Ignore huge npm dependencies folder
+
+# Logs and junk
+*.log            ← Ignore log files
+.DS_Store        ← Ignore Mac junk files
+Thumbs.db        ← Ignore Windows junk files
+
+# Build files
+dist/            ← Ignore build/output folders
