@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - FIREBASE_CREDENTIAL_PATH=/app/firebase_credentials.json
+      - TWILIO_CONFIG_PATH=/app/alerts/twilio_config.json
+    volumes:
+      - ./backend:/app/backend
+      - ./models:/app/models
+      - ./alerts:/app/alerts
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+    environment:
+      - NODE_ENV=development
+
+networks:
+  default:
+    driver: bridge
